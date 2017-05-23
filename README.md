@@ -4,7 +4,7 @@ This image is meant to simplify process of using docker-compose, not requiring y
 
 ## Usage
 
-    docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/scripts -w /scripts michalpodeszwa/docker-compose docker-compose -p "$(basename "$(pwd)")" help
+    docker run -it -v /var/run/docker.sock:/var/run/docker.sock -v "$(pwd):/scripts/$(basename "$(pwd)")" -w "/scripts/$(basename "$(pwd)")" michalpodeszwa/docker-compose docker-compose help
 
 This command mounts your current directory as `/scripts` and sets it as a workspace, mounts `docker.sock` file inside, so the docker inside uses your local docker for the scripts.
 
